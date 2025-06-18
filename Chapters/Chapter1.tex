@@ -71,7 +71,7 @@ Throughout the proofs, we let \(x = [(x_0, x_1)]\), \(y = [(y_0, y_1)]\) and \(z
     We can add this equality to both sides of the former to get \((x_0 + y_1) + (y_0 + z_1 + q) < (x_1 + y_0) + (y_1 + z_0)\). Then, using the cancellation law, we can simplify this to
     \(x_0 + z_1 + q < x_1 + z_0\). So \(x_1 + z_0 = x_0 + z_1 + q + r\) for some \(r \in \naturals\). Since \(q+r \in \naturals\), we get that \(x_0 + z_1 < x_1 + z_0\). Hence, \(x < z\).
 \end{proof}
-\begin{proof}
+\begin{proof}[proof of (13)]
     Suppose that \(x < y\) and \(z > \hat{0}\). We know, from Theorem 1.3.7 (2), that \(z = [(a+1, 1)]\) for some \(a \in \naturals\).
     Since \(x_0 + y_1 < x_1 + y_0\), multiplying both sides by \(a\) yields \(ax_0 + ay_1 < ax_1 + ay_0\).
     Hence,
@@ -85,4 +85,118 @@ Throughout the proofs, we let \(x = [(x_0, x_1)]\), \(y = [(y_0, y_1)]\) and \(z
 \end{proof}
 \begin{proof}[proof of (14)]
     Suppose that \(\hat{0} = \hat{1}\). So \([(1,1)] = [(1+1, 1)]\). By definition, this means \(1 + 1 = 1 + (1+1)\). Applying associativity with the law of cancellation for addition, we get \(1 = 1+ 1\). This contradicts peano axioms. Hence, \(\hat{1} \neq \hat{0}\).
+\end{proof}
+
+
+\newpage
+
+\noindent \textbf{Exercise 1.3.6} Prove Theorem 1.3.7 (1) (3) (4b) (4c).
+\begin{proof}[proof of (1)]
+    Suppose that \(i(a) = i(b)\) for some \(a,b \in \naturals\). So \([(a+1,1)] = [(b+1, 1)]\) and \((a+1) + 1 = 1 + (b+1)\). Applying the cancellation law twice, we yield \(a=b\). As desired.
+\end{proof}
+\begin{proof}[proof of (3)]
+    This holds true by definition of \(\hat{1}\).
+\end{proof}
+\begin{proof}[proof of (4b)]
+    Let \(a,b \in \naturals\) be arbitrary natural numbers. Then
+    \begin{align*}
+        i(a)i(b) &= [(a+1, 1)][(b+1, 1)]\\
+        &= [((a+1)(b+1) + 1, a+1 + b+1)]\\
+        &= [(ab + a + b + 1 + 1, a+1 +  b + 1)]\\
+        &= [(ab + 1, 1)] \\
+        &= i(ab)
+    \end{align*}
+\end{proof}
+\begin{proof}[proof of (4c)]
+    (\(\Longrightarrow\)) Suppose that \(a<b\) for some \(a,b \in \naturals\). Using properties of order, we see that \((a+1) +1 < (b+1) + 1\).
+    Therefore, \([(a+1, 1)] < [(b+1, 1)]\).
+    \par (\(\Longleftarrow\)) Every step in \(\Longrightarrow\) can be reversed to yield \(\Longleftarrow\).
+\end{proof}
+
+
+\noindent \textbf{Exercise 1.3.7} Let \(x,y,z \in \integers\).
+\begin{enumerate}
+    \item Prove that \(x < y\) if and only if \(-x > -y\).
+    \item Prove that if \(z < 0\), then \(x<y\) if and only if \(xz > yz\).
+\end{enumerate}
+\begin{proof}[proof for (1)]
+    Suppose that \(x<y\). Adding \((-x) + (-y)\) to both sides, we yield \((-y) + ((-x) + x) < (-x) + ((-y) + y)\) which simplifies to \(-y < -x\).
+    \par Now suppose that \(-x > -y\). Adding \(x + y\) to both sides gives \(y + (x + (-x)) > x + (y + (-y))\) which gives \(y > x\) after simplification using the law of additive inverses.
+\end{proof}
+\begin{proof}[proof of (2)]
+    Suppose that \(z < 0\), and suppose that \(x < y\). We know from (1) that \(-z > -0 = 0\). And we know from Theorem 1.3.5 (13) that \(-zx < -zy\). Applying (1) again gives \(zx > zy\) which is the desired result.
+    \par We prove the converse using constraposition. Suppose that \(x \geq y\). Either \(x = y\) or \(x > y\). In the former, we deduce that \(xz = yz\), and therefore, \(xz \leq yz\). In the latter, we apply the result we just proved to yield
+    \(xz < yz\) which is also equivalent to \(xz \leq yz\).
+\end{proof}
+
+
+\noindent \textbf{Exercise 1.3.8} Let \(x \in \integers\). Prove that if \(x > 0\) then \(x \geq 1\).
+Prove that if \(x < 0\) then \(x \leq -1\).
+\begin{proof}
+    Suppose that \(x > 0\), and suppose that \(x < 1\). So \(0 < x < 1\) which contradicts Theorem 1.3.9. Now suppose that \(x < 0\), and that \(x > -1\).
+    We deduce that \(-1 < x < 0\) which also contadicts Theorem 1.3.9.
+\end{proof}
+
+
+
+\noindent \textbf{Exercise 1.3.9}
+\begin{enumerate}
+    \item Prove that \(1 < 2\).
+    \item Let \(x \in \integers\). Prove that \(2x \neq 1\).
+\end{enumerate}
+\begin{proof}[proof of (1)]
+    We know \([(1+1+1, 1)] = 2\) and \([(1+1, 1)] = 1\). Since \((1+1) + 1 < (1+1+1) + 1\), we deduce that \(1 < 2\).
+\end{proof}
+\begin{proof}[proof of (2)]
+    Let \(x \in \integers\) be arbitrary. Suppose that \(2x = 1\). Since \(1 > 0\), we know that \(2x > 0\) (Apply Lemma 1.3.8 (11)). And since \(2 > 0\), \(x > 0\).
+    Since \(x\) is positive and \(1 < 2\), it must be the case that \(x < 2x = 1\). Therefore, \(0 < x < 1\). However, we know from Theorem 1.3.9 that no such \(x\) can exist. Therefore, we have a contradiction.
+\end{proof}
+
+
+\noindent \textbf{Exercise 1.3.10} Prove that the Well-Ordering Principle (Theorem 1.2.10), which was stated for \(\naturals\) in Section 1.2, still holds when
+we think of \(\naturals\) as the set of positive integers. That is, let \(G \subseteq \{x \in \integers : x > 0\}\) be a non-empty set. Prove that there is some \(m \in G\) such that \(m \leq g\) for all \(g \in G\). Use Theorem 1.3.7.
+\begin{proof}
+    Let \(R = \{x \in \integers : x > 0\}\). Let \(G\) be a non-empty subset of \(R\) with no least element. Let \[A = \{a \in R : \text{if }r \in R\text{ and }r \leq a\text{, then }r\notin G\}.\]
+    Clearly \(A \cap G = \varnothing\). We show that \(i^{-1}[A] = \naturals\), which implies that \(A = R\) and lets us deduce that \(G = \varnothing\) which is a contradiction. Let \(H\) denote \(i^{-1}[A]\). Suppose that \(1 \notin H\).
+    By definition, \(i(1) = \hat{1} \notin A\). So there exists \(q \in R\) such that \(q \leq \hat{1}\) and \(q \in G\). Since \(q \in R\), \(\hat{0} < q \leq \hat{1}\).
+    One can clearly see that \(q = \hat{1}\). However, \(\hat{1} \in G\) would contradict the assumption that \(G\) has no least element (since \(\hat{0} < x < \hat{1}\) is false for all \(x \in \integers\) as proven previously).
+    Therefore, \(1 \in H\).
+    \par Now suppose that \(a \in H\) but \(a+1 \notin H\). By definition, that means \(i(a) \in A\) but \(i(a+1) \notin A\). Then there must exist \(p \in R\) such that \(p \leq i(a+1)\) and \(p \in G\). Since \(i(a) \in H\), showing that \(p \leq i(a)\) would give us a contradiction.
+    Hence, by the trichotomy of order in \(\integers\), \(i(a) < p\). And therefore, \(i(a) < p \leq i(a+1)\). It follows that \(p = i(a+1)\). Therefore \(i(a+1) \in G\). Now let \(x \in G\) be arbitrary
+    and suppose that \(x < i(a+1)\). Then \(x < i(a) + \hat{1}\) and \(x \leq i(a)\). Because \(i(a) \in A\), it follows that \(x \notin G\), which is a contradiction. Hence, \(a + 1 \leq x\) (trichotomy of order). We
+\end{proof}
+
+\noindent \textbf{Exercise 1.3.11} Prove Theorem 1.3.8 (1) (3) (4) (5) (7) (10) (11).
+\begin{proof}[proof of (1)]
+    \begin{gather*}
+        x+z = y+z\\
+        x + z + (-z) = y + z + (-z) \\
+        x + 0 = y + 0\\
+        x = y.
+    \end{gather*}
+\end{proof}
+\begin{proof}[proof of (3)]
+    Consider \(x + y + (-x) + (-y) = 0\).
+    \begin{gather*}
+        x+y + (-x) + (-y) = 0\\
+        (x+y) + (-(x+y)) + (-x) + (-y) = -(x+y)\\
+        0 + (-x) + (-y) = -(x+y)\\
+        (-x) + (-y) = -(x+y)
+    \end{gather*}
+\end{proof}
+\begin{proof}[proof of (4)]
+    \begin{align*}
+        x &= x \cdot 1 \\
+        &= x \cdot (1 + 0) \\
+        &= x \cdot 1 + x \cdot 0 \\
+        &= x + x \cdot 0
+    \end{align*}
+    So \(x = x + x\cdot 0\). Adding \(-x\) to both sides yields the desired result.
+\end{proof}
+\begin{proof}[proof of (5)]
+    Suppose that \(z \neq 0\) and \(xz = yz\). Then \(xz + (-(yz)) = 0\) and \(xz + (-y)z = (x + (-y))z = 0\).
+    Using Theorem 1.3.5 (9) (Which states that \(\integers\) have no zero divisors), we deduce that \(x + (-y) = 0\). Therefore, \(x = y\).
+\end{proof}
+\begin{proof}[proof of (7)]
+    Suppose that \(\)
 \end{proof}
